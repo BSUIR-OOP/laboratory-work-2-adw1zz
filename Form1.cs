@@ -15,12 +15,14 @@ namespace lab2
         public MainForm()
         {
             InitializeComponent();
-            figures.Add(new Circle());
-            figures.Add(new Ellips());
-            figures.Add(new Rect());
-            figures.Add(new Rhombus());
-            figures.Add(new Square());
-            figures.Add(new Triangle());
+            figures.Add(new Circle("Circle"));
+            figures.Add(new Ellips("Ellips"));
+            figures.Add(new Rect("Rectangle"));
+            figures.Add(new Rhombus("Rhombus"));
+            figures.Add(new Square("Square"));
+            figures.Add(new Triangle("Triangle"));
+            comboBox1.SelectedIndex = 0;
+            canvas = CreateGraphics();
         }
 
         public Graphics canvas;
@@ -30,15 +32,28 @@ namespace lab2
 
         private void MainForm_MouseClick(object sender, MouseEventArgs e)
         {
+
             click = e.Location;
-            canvas = CreateGraphics();
+            string current;
             canvas.Clear(Color.Azure);
             int index = comboBox1.SelectedIndex;
-            if (index != -1)
+
+            for (int i =0; i<figures.Count; i++)
             {
-                figures[index].Draw(canvas, click);
+                current = comboBox1.Items[index].ToString();
+                if (current == figures[i].Name)
+                {
+
+                    if (current == "Ellips" || current == "Circle")
+                    {
+                        figures[i].Draw(canvas, click);
+                    }
+                    else
+                    canvas.DrawPolygon(figures[i].pen, figures[i].fillArray(click));
+                    
+                }
             }
         }
 
-    }
+    } 
 }

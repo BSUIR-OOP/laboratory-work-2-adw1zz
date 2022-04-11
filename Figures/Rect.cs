@@ -9,11 +9,29 @@ namespace lab2
 {
     class Rect: Figure
     {
-        private int width = 300;
-        private int height = 200;
-        public override void Draw(Graphics canvas, Point click)
+        public Rect(string name)
         {
-            canvas.DrawRectangle(pen, click.X - width / 2, click.Y - height / 2, width, height);
+            base.Name = name;
         }
+
+        public override Point[] fillArray(Point click)
+        {
+            Point point1 = new Point(click.X-150, click.Y-60);
+            Point point2 = new Point(click.X +150, click.Y-60);
+            Point point3 = new Point(click.X+150, click.Y + 60);
+            Point point4 = new Point(click.X-150, click.Y +60);
+
+            Point[] points =
+            {
+                point1,
+                point2,
+                point3,
+                point4
+            };
+
+
+            return points;
+        }
+     
     }
 }

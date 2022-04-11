@@ -9,6 +9,11 @@ namespace lab2
 {
     class Ellips:Figure
     {
+        public Ellips(string name)
+        {
+            base.Name = name;
+        }
+
         private int width = 300;
         private int height = 200;
         public override void Draw(Graphics canvas, Point click)

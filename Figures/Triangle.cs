@@ -10,11 +10,16 @@ namespace lab2
     class Triangle:Figure
     {
 
-        private Point[] fillArray(Point click)
+        public Triangle(string name)
         {
-            Point point1 = new Point(click.X + 100, click.Y);
-            Point point2 = new Point(click.X, click.Y + 200);
-            Point point3 = new Point(click.X + 200, click.Y + 200);
+            base.Name = name;
+        }
+
+        public override Point[] fillArray(Point click)
+        {
+            Point point1 = new Point(click.X, click.Y-100);
+            Point point2 = new Point(click.X+100, click.Y + 100);
+            Point point3 = new Point(click.X - 100, click.Y + 100);
             Point[] points =
             {
                 point1,
@@ -24,12 +29,6 @@ namespace lab2
 
             return points;
         }
-        public override void Draw(Graphics canvas, Point click)
-        {
-            Point[] array = fillArray(click);
 
-            canvas.DrawPolygon(pen, array);
-
-        }
     }
 }

@@ -9,11 +9,29 @@ namespace lab2
 {
     class Square:Figure
     {
-        private int width = 150;
-        private int height = 150;
-        public override void Draw(Graphics canvas, Point click)
+
+        public Square(string name)
         {
-            canvas.DrawRectangle(pen, click.X-width/2, click.Y-height/2, width,height);
+            base.Name = name;
+        }
+
+        public override Point[] fillArray(Point click)
+        {
+            Point point1 = new Point(click.X- 75, click.Y - 75);
+            Point point2 = new Point(click.X + 75, click.Y - 75);
+            Point point3 = new Point(click.X + 75, click.Y + 75);
+            Point point4 = new Point(click.X - 75, click.Y + 75);
+
+            Point[] points =
+            {
+                point1,
+                point2,
+                point3,
+                point4
+            };
+
+
+            return points;
         }
     }
 }

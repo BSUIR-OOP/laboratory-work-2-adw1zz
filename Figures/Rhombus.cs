@@ -9,12 +9,18 @@ namespace lab2
 {
     class Rhombus:Figure
     {
-        private Point[] fillArray(Point click)
+
+        public Rhombus(string name)
         {
-            Point point1 = new Point(click.X + 100, click.Y);
-            Point point2 = new Point(click.X + 200, click.Y + 120);
-            Point point3 = new Point(click.X + 100, click.Y + 240);
-            Point point4 = new Point(click.X, click.Y + 120);
+            base.Name = name;
+        }
+
+        public override Point[] fillArray(Point click)
+        {
+            Point point1 = new Point(click.X, click.Y-120);
+            Point point2 = new Point(click.X + 100, click.Y);
+            Point point3 = new Point(click.X, click.Y + 120);
+            Point point4 = new Point(click.X-100, click.Y);
 
             Point[] points =
             {
@@ -28,11 +34,5 @@ namespace lab2
             return points;
         }
         
-        public override void Draw(Graphics canvas, Point click)
-        {
-            Point[] array = fillArray(click);
-
-            canvas.DrawPolygon(pen, array);
-        }
     }
 }
