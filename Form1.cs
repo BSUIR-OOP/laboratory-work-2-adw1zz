@@ -10,50 +10,59 @@ using System.Windows.Forms;
 
 namespace lab2
 {
-    public partial class MainForm : Form
+    public partial class Form1 : Form
     {
-        public MainForm()
+        public Form1()
         {
             InitializeComponent();
-            figures.Add(new Circle("Circle"));
-            figures.Add(new Ellips("Ellips"));
-            figures.Add(new Rect("Rectangle"));
-            figures.Add(new Rhombus("Rhombus"));
-            figures.Add(new Square("Square"));
-            figures.Add(new Triangle("Triangle"));
             comboBox1.SelectedIndex = 0;
             canvas = CreateGraphics();
+            figures.Add(new Triangle());
+            figures.Add(new Square());
+            figures.Add(new Rectangle());
+            figures.Add(new Rhombus());
+            figures.Add(new Circle());
+            figures.Add(new Ellips());
+
+
         }
 
-        public Graphics canvas;
         Point click;
 
-        List<Figure> figures = new List<Figure>();
+        Graphics canvas;
 
-        private void MainForm_MouseClick(object sender, MouseEventArgs e)
+        Rectangle rect;
+        
+        Pen pen = new Pen(Color.Black, 3);
+
+        List<Abs> figures = new List<Abs>();
+    
+
+        private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-
             click = e.Location;
-            string current;
-            canvas.Clear(Color.Azure);
+            canvas.Clear(Color.White);
+
             int index = comboBox1.SelectedIndex;
-
-            for (int i =0; i<figures.Count; i++)
+           
+            for (int i=0; i<figures.Count; i++)
             {
-                current = comboBox1.Items[index].ToString();
-                if (current == figures[i].Name)
+                if (figures[i].ToString()[5..] == comboBox1.Items[index].ToString())
                 {
-
-                    if (current == "Ellips" || current == "Circle")
+                    try
                     {
-                        figures[i].Draw(canvas, click);
+                        canvas.DrawPolygon(pen, figures[i].fillArr(click));
                     }
-                    else
-                    canvas.DrawPolygon(figures[i].pen, figures[i].fillArray(click));
-                    
+                    catch (Exception)
+                    {
+                        figures[i].fillArr(click,canvas,pen);
+                      
+                    }
                 }
+                
             }
+            
+           
         }
-
-    } 
+    }
 }

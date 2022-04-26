@@ -7,14 +7,14 @@ using System.Drawing;
 
 namespace lab2
 {
-    class Rhombus:Abs
+    class Rectangle:Abs
     {
         public Point[] fillArr(Point click)
         {
-            Point point1 = new Point(click.X, click.Y - 120);
-            Point point2 = new Point(click.X + 100, click.Y);
-            Point point3 = new Point(click.X, click.Y + 120);
-            Point point4 = new Point(click.X - 100, click.Y);
+            Point point1 = new Point(click.X - 150, click.Y - 60);
+            Point point2 = new Point(click.X + 150, click.Y - 60);
+            Point point3 = new Point(click.X + 150, click.Y + 60);
+            Point point4 = new Point(click.X - 150, click.Y + 60);
 
             Point[] points =
             {
@@ -23,6 +23,8 @@ namespace lab2
                 point3,
                 point4
             };
+
+
             return points;
         }
     }

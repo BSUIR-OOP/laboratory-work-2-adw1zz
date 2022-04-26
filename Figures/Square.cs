@@ -2,22 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Drawing;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace lab2
 {
-    class Square:Figure
+    class Square:Abs
     {
 
-        public Square(string name)
+        public string Name;
+
+        public Square()
         {
-            base.Name = name;
+            string name;
+            name = this.ToString();
+            this.Name = name[5..];
         }
 
-        public override Point[] fillArray(Point click)
+        public Point[] fillArr(Point click)
         {
-            Point point1 = new Point(click.X- 75, click.Y - 75);
+            Point point1 = new Point(click.X - 75, click.Y - 75);
             Point point2 = new Point(click.X + 75, click.Y - 75);
             Point point3 = new Point(click.X + 75, click.Y + 75);
             Point point4 = new Point(click.X - 75, click.Y + 75);
@@ -33,5 +37,7 @@ namespace lab2
 
             return points;
         }
+
+
     }
 }
