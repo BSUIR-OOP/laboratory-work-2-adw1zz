@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace lab2
 {
-    class Square:Abs
+    class Square:IPolygon
     {
 
         public string Name;

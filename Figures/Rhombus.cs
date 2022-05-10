@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace lab2
 {
-    class Rhombus:Abs
+    class Rhombus:IPolygon
     {
         public Point[] fillArr(Point click)
         {

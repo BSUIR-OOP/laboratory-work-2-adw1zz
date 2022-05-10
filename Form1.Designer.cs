@@ -71,6 +71,7 @@ namespace lab2
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(208, 28);
             this.comboBox1.TabIndex = 0;
+            
             // 
             // Form1
             // 

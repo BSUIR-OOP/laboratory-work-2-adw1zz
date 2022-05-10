@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace lab2
 {
-    class Triangle:Abs
+    class Triangle:IPolygon
     {
         public Point[] fillArr(Point click)
         {

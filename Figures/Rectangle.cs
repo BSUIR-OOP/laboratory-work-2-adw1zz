@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace lab2
 {
-    class Rectangle:Abs
+    class Rectangle:IPolygon
     {
         public Point[] fillArr(Point click)
         {

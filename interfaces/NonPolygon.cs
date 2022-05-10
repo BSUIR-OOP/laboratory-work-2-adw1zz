@@ -7,11 +7,11 @@ using System.Drawing;
 
 namespace lab2
 {
-    class Ellips: INonPolygon
+    interface INonPolygon:IAbs
     {
         public void fillArr(Point click, Graphics canvas, Pen pen)
         {
-            canvas.DrawEllipse(pen, click.X-150, click.Y-100, 300, 200);
+
         }
     }
 }

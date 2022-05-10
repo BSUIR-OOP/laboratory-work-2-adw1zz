@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace lab2
 {
-    interface Abs
+    interface IAbs
     {
         
         public Point[] fillArr(Point click)

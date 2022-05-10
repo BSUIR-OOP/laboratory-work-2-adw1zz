@@ -7,7 +7,7 @@ using System.Drawing;
 
 namespace lab2
 {
-    class Circle:Abs
+    class Circle: INonPolygon
     {
         public void fillArr(Point click, Graphics canvas,Pen pen)
         {

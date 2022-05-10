@@ -24,7 +24,6 @@ namespace lab2
             figures.Add(new Circle());
             figures.Add(new Ellips());
 
-
         }
 
         Point click;
@@ -35,7 +34,14 @@ namespace lab2
         
         Pen pen = new Pen(Color.Black, 3);
 
-        List<Abs> figures = new List<Abs>();
+        List<IAbs> figures = new List<IAbs>();
+
+        public bool isImplemented(Type type, string name)
+        {
+            var interfaceType = type.GetInterfaces()
+                .FirstOrDefault(t => t.Name == name);
+            return interfaceType!=null;
+        }
     
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
@@ -49,20 +55,22 @@ namespace lab2
             {
                 if (figures[i].ToString()[5..] == comboBox1.Items[index].ToString())
                 {
-                    try
+                   
+                    if (isImplemented(figures[i].GetType(), "INonPolygon"))
                     {
-                        canvas.DrawPolygon(pen, figures[i].fillArr(click));
+                        figures[i].fillArr(click, canvas, pen);
                     }
-                    catch (Exception)
+                    else
                     {
-                        figures[i].fillArr(click,canvas,pen);
-                      
+                       canvas.DrawPolygon(pen,figures[i].fillArr(click));
                     }
+                    
                 }
                 
             }
             
            
         }
+
     }
 }
