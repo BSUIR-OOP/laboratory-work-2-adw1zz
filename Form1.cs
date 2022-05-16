@@ -12,37 +12,36 @@ namespace lab2
 {
     public partial class Form1 : Form
     {
-        public Form1()
-        {
-            InitializeComponent();
-            comboBox1.SelectedIndex = 0;
-            canvas = CreateGraphics();
-            figures.Add(new Triangle());
-            figures.Add(new Square());
-            figures.Add(new Rectangle());
-            figures.Add(new Rhombus());
-            figures.Add(new Circle());
-            figures.Add(new Ellips());
-
-        }
-
         Point click;
 
         Graphics canvas;
 
-        Rectangle rect;
-        
-        Pen pen = new Pen(Color.Black, 3);
+        private Dictionary<int, IAbs> figures = new Dictionary<int, IAbs>();
 
-        List<IAbs> figures = new List<IAbs>();
-
-        public bool isImplemented(Type type, string name)
+        public Form1()
         {
-            var interfaceType = type.GetInterfaces()
-                .FirstOrDefault(t => t.Name == name);
-            return interfaceType!=null;
+            InitializeComponent();
+            canvas = CreateGraphics();
+            figures.Add(0,new Circle());
+            figures.Add(1,new Square());
+            figures.Add(2,new Rectangle());
+            figures.Add(3,new Rhombus());
+            figures.Add(4,new Triangle());
+            figures.Add(5,new Ellipse());
+            comboBoxInit();
+            comboBox1.SelectedIndex = 0;
         }
-    
+
+        private void comboBoxInit()
+        {
+            this.comboBox1.Items.Clear();
+            foreach(var key in this.figures.Keys)
+            {
+                this.comboBox1.Items.Add(this.figures[key].GetType().Name);
+            }
+        }
+
+
 
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
@@ -50,24 +49,8 @@ namespace lab2
             canvas.Clear(Color.White);
 
             int index = comboBox1.SelectedIndex;
-           
-            for (int i=0; i<figures.Count; i++)
-            {
-                if (figures[i].ToString()[5..] == comboBox1.Items[index].ToString())
-                {
-                   
-                    if (isImplemented(figures[i].GetType(), "INonPolygon"))
-                    {
-                        figures[i].fillArr(click, canvas, pen);
-                    }
-                    else
-                    {
-                       canvas.DrawPolygon(pen,figures[i].fillArr(click));
-                    }
-                    
-                }
-                
-            }
+      
+            ShapeDrawer.DrawFigure(this.figures[index],canvas,click);
             
            
         }

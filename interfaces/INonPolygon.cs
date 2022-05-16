@@ -7,19 +7,11 @@ using System.Drawing;
 
 namespace lab2
 {
-    interface IAbs
+    interface INonPolygon:IAbs
     {
-        
-        public Point[] fillArr(Point click)
+        public new float[] FloatArr(Point click)
         {
-        
             return null;
         }
-
-        public void fillArr(Point click, Graphics canvas, Pen pen)
-        {
-           
-        }
-
     }
 }

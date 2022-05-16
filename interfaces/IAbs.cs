@@ -7,12 +7,19 @@ using System.Drawing;
 
 namespace lab2
 {
-    interface IPolygon:IAbs
+    interface IAbs
     {
-        public Point[] fillArr(Point click)
+        
+        public Point[] PointArr(Point click)
         {
-
+        
             return null;
         }
+        
+        public float[] FloatArr(Point click)
+        {
+            return null;
+        }
+
     }
 }

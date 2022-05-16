@@ -7,11 +7,12 @@ using System.Drawing;
 
 namespace lab2
 {
-    interface INonPolygon:IAbs
+    class Ellipse: INonPolygon
     {
-        public void fillArr(Point click, Graphics canvas, Pen pen)
+        public float[] FloatArr(Point click)
         {
-
+            float[] arr = { click.X - 300/ 2, click.Y - 200/ 2, 300, 200 };
+            return arr;
         }
     }
 }

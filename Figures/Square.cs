@@ -19,7 +19,7 @@ namespace lab2
             this.Name = name[5..];
         }
 
-        public Point[] fillArr(Point click)
+        public Point[] PointArr(Point click)
         {
             Point point1 = new Point(click.X - 75, click.Y - 75);
             Point point2 = new Point(click.X + 75, click.Y - 75);

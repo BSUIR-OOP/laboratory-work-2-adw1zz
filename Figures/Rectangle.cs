@@ -9,7 +9,7 @@ namespace lab2
 {
     class Rectangle:IPolygon
     {
-        public Point[] fillArr(Point click)
+        public Point[] PointArr(Point click)
         {
             Point point1 = new Point(click.X - 150, click.Y - 60);
             Point point2 = new Point(click.X + 150, click.Y - 60);

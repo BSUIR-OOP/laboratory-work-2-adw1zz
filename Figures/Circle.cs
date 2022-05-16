@@ -9,9 +9,10 @@ namespace lab2
 {
     class Circle: INonPolygon
     {
-        public void fillArr(Point click, Graphics canvas,Pen pen)
+        public float[] FloatArr(Point click)
         {
-            canvas.DrawEllipse(pen, click.X-120, click.Y-120, 240, 240);
+            float[] arr = {click.X - 250/2, click.Y - 250/2,250, 250 };
+            return arr;
         }
 
     }

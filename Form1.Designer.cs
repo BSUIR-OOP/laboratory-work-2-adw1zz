@@ -60,18 +60,10 @@ namespace lab2
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Rectangle",
-            "Rhombus",
-            "Circle",
-            "Ellips",
-            "Triangle",
-            "Square"});
             this.comboBox1.Location = new System.Drawing.Point(903, 43);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(208, 28);
             this.comboBox1.TabIndex = 0;
-            
             // 
             // Form1
             // 

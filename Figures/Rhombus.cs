@@ -9,7 +9,7 @@ namespace lab2
 {
     class Rhombus:IPolygon
     {
-        public Point[] fillArr(Point click)
+        public Point[] PointArr(Point click)
         {
             Point point1 = new Point(click.X, click.Y - 120);
             Point point2 = new Point(click.X + 100, click.Y);
