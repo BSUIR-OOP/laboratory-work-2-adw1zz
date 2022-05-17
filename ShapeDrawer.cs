@@ -13,7 +13,7 @@ namespace lab2
         private static bool Isimplemented(Type type)
         {
             var interfaceType = type.GetInterfaces()
-                .FirstOrDefault(t => t.Name == "INonPolygon");
+                .FirstOrDefault(t => t.Name == nameof(INonPolygon));
             return interfaceType != null;
         }
 
